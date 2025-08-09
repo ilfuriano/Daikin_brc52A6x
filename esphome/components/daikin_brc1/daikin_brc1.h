@@ -75,6 +75,12 @@ class DaikinBrcClimate : public climate_ir::ClimateIR {
     this->temperature_step_ = value ? 0.5f : 1.0f;
   }
 
+  public:
+  void force_set_mode(climate::ClimateMode mode) {
+    this->mode = mode;
+    this->last_mode = mode; 
+  }
+
  protected:
   uint8_t mode_button_ = 0x00;
   // Capture if the MODE was changed
